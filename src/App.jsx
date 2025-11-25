@@ -60,7 +60,7 @@ function App() {
       <h1 className="text-center font-bold text-2xl">TaskManager - Manage you todos at one place</h1>
         <div className="addTodo my-5 flex flex-col gap-4">
           <h2 className="text-lg font-bold">Add a Todo</h2>
-          <input type="text" onChange={handleChange} onKeyDown={(e) => e.key === "Enter" && handleAdd()} value={todo} className="w-full rounded-md px-3 py-1" />
+          <input type="text" onChange={handleChange} onKeyDown={(e) => {if(e.key === "Enter" && todo.length>3) handleAdd()}} value={todo} className="w-full rounded-md px-3 py-1" />
           <button onClick={handleAdd} disabled={todo.length<=3} className="bg-violet-800 disabled:bg-violet-500 hover:bg-violet-950 p-2 py-1 font-bold text-sm rounded-md text-white">
             Save
           </button>
